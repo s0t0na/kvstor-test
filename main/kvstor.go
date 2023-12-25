@@ -208,3 +208,5 @@ func writeUsageOrHandleUnexpectedError(conn net.Conn, err error) {
 		panic("something weird has happened.")
 	}
 }
+
+// TODO: saving data to disk would not hurt though.
