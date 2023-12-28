@@ -22,10 +22,16 @@ type KVStor struct {
 }
 
 type Record struct {
-	Key        string
-	Value      []byte
+	Key   string
+	Value []byte
+
 	Timestamp  uint64
 	TimeToLive uint64
+
+	// todo: this is to prevent overflows
+	KeySize   uint64
+	ValueSize uint64
+	CheckSum  []byte
 }
 
 // NewKVStor create new KVStor instance.
@@ -186,10 +192,6 @@ func main() {
 		go HandleRequest(conn, kvstor)
 	}
 
-}
-
-func panicOnError(err error) {
-	panic(err)
 }
 
 // usage explains how to use kvstor.

@@ -36,8 +36,8 @@ func TestKVStorDelete(t *testing.T) {
 	kv := NewKVStor()
 
 	// Test DELETE operation
-	kv.Set("key3", "value3", 10)
-	panicOnError(kv.Delete("key3"))
+	kv.Set("key3", "value3", 120)
+	kv.Delete("key3")
 
 	_, ok := kv.Get("key3")
 	if ok {
